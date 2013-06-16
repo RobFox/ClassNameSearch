@@ -30,13 +30,13 @@ public class Matcher {
             }
         }
         if (pattern.isLast()) {
-            if (pattern.matches(className.getCurrent())) {
+            if (pattern.matches(className)) {
                 return true;
             } else if (!isStarMode) {
                 return bestMatch;
             }
         }
-        if (pattern.matches(className.getCurrent())) {
+        if (pattern.matches(className)) {
             bestMatch = bestMatch || matches(pattern.next(), className.next(), false);
         }
         if (isStarMode) {

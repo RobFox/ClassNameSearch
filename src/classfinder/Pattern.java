@@ -85,7 +85,7 @@ public class Pattern {
 
     /**
      * Checks if the current pattern part matches the given class name
-     * @param classNamePart current class name part
+     * @param classNamePart matching class name part
      * @return true if matches
      */
     public boolean matches (String classNamePart) {
@@ -95,6 +95,14 @@ public class Pattern {
         } else {
             return (classNamePart.substring(0, patternPart.length()).equals(patternPart));
         }
+    }
+    /**
+     * Checks if the current pattern part matches the given class name
+     * @param className matching class name
+     * @return true if matches
+     */
+    public boolean matches (ClassName className) {
+        return matches(className.getCurrent());
     }
 
     @Override
