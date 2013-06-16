@@ -11,19 +11,19 @@ public class Util {
      * @param decider decides when to split
      * @return split Strings as a list
      */
-	public static List<String> split(String string, SplitDecider decider) {
-		StringBuffer word = new StringBuffer();
-		List<String> words = new ArrayList<String>();
-		for (int i = 0; i < string.length(); i++) {
-			if (decider.split(string.charAt(i)) && word.length() > 0) {
-				words.add(word.toString());
-				word.setLength(0);
-			}
-			word.append(string.charAt(i));
-		}
-		words.add(word.toString());
-		word.setLength(0);
-		return words;
-	}
+    public static List<String> split(String string, SplitDecider decider) {
+        StringBuffer word = new StringBuffer();
+        List<String> words = new ArrayList<String>();
+        for (int i = 0; i < string.length(); i++) {
+            if (decider.split(string.charAt(i)) && word.length() > 0) {
+                words.add(word.toString());
+                word.setLength(0);
+            }
+            word.append(string.charAt(i));
+        }
+        words.add(word.toString());
+        word.setLength(0);
+        return words;
+    }
 
 }

@@ -35,17 +35,21 @@ public class Pattern {
                 return (Character.isUpperCase(c) || c == '*' || c == ' ');
             }
         });
+        removeStarsFromEnd(patternParts);
+        for (int i = 0; i < patternParts.size(); i++) {
+            String patternPart = patternParts.get(i);
+            if (!(patternPart.equals("*") || patternPart.equals(" "))) {
+                charactersLenght++;
+            }
+        }
+    }
+
+    private void removeStarsFromEnd(List<String> patternParts) {
         for (int i = patternParts.size() - 1; i >= 0; i--) {
             if (patternParts.get(i).equals("*")) {
                 patternParts.remove(i);
             } else {
                 break;
-            }
-        }
-        for (int i = 0; i < patternParts.size(); i++) {
-            String patternPart = patternParts.get(i);
-            if (!(patternPart.equals("*") || patternPart.equals(" "))) {
-                charactersLenght++;
             }
         }
     }

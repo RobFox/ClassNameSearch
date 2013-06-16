@@ -14,13 +14,13 @@ import org.junit.Test;
 
 public class ClassFinderTest {
 
-	private int testClassFinder(String classNames, String searchKey) throws IOException {
-		return new ClassFinder(new ByteArrayInputStream(classNames.getBytes()))
+    private int testClassFinder(String classNames, String searchKey) throws IOException {
+        return new ClassFinder(new ByteArrayInputStream(classNames.getBytes()))
                 .findMatching(searchKey).size();
-	}
+    }
 
-	@Test
-	public void basicTest() throws IOException {
+    @Test
+    public void basicTest() throws IOException {
         assertEquals(1, testClassFinder("a.b.FooBar", "FooBar"));
         assertEquals(1, testClassFinder("a.b.FooBar", "FooB"));
         assertEquals(1, testClassFinder("a.b.FooBar", "FBar"));
